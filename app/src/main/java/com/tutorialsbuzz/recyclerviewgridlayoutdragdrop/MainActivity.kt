@@ -1,8 +1,7 @@
 package com.tutorialsbuzz.recyclerviewgridlayoutdragdrop
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -24,11 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = GridLayoutManager(this, 4)
         recyclerView.adapter = adapter;
-        adapter.setOnItemClickListener(object : CustomAdapter.ClickListener {
-            override fun onClick(pos: Int, aView: View) {
-                Toast.makeText(this@MainActivity, model.get(pos).name, Toast.LENGTH_SHORT).show()
-            }
-        })
 
         val callback: ItemTouchHelper.Callback = ItemMoveCallback(adapter)
         touchHelper = ItemTouchHelper(callback)
